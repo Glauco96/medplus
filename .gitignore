@@ -1,0 +1,5 @@
+venv/
+*.pyc
+  pycache
+app.db
+.vscode
