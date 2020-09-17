@@ -8,8 +8,9 @@ from app.models import (
     Doctor,
     OccupationArea,
     Specialty,
-    Patient,
-    )
+    Patient
+)
+
 
 app = create_app()
 
@@ -24,7 +25,7 @@ def make_shell_context():
         'Consult': Consult,
         'StatusConsult': StatusConsult,
         'Doctor': Doctor,
-        'OccupationArea': OccupationArea,
+        'OccupationArea': OccupationArea ,
         'Specialty': Specialty,
-        'Patient': Patient,
+        'Patient': Patient
     }

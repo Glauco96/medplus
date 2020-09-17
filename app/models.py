@@ -1,4 +1,4 @@
-from flask_login import UserMixing
+from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 from app import db, login
 from datetime import datetime
@@ -9,10 +9,10 @@ class Admin(db.Model):
     __tablename__ = "admins"
 
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeingKey('users.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
     def __repr__(self):
-        return 'Admin: {}\n User ID:'.format(self.id, self.user_id)
+        return 'Admin: {}\nUser ID: {}'.format(self.id, self.user_id)
 
 
 class Secretary(db.Model):
@@ -20,14 +20,14 @@ class Secretary(db.Model):
     __tablename__ = "secretaries"
 
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeingKey('users.id'))
-    consult_id = db.Column(db.Integer, db.ForeingKey('consults.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    consult_id = db.Column(db.Integer, db.ForeignKey('consults.id'))
 
     def __repr__(self):
         return 'Secretary: {}'.format(self.id)
 
 
-class User(UserMixing, db.Model) :
+class User(UserMixin, db.Model) :
 
     __tablename__ = "users"
 
@@ -41,7 +41,7 @@ class User(UserMixing, db.Model) :
     secretaries = db.relationship('Secretary', backref='user', lazy='dynamic')
 
     def set_password(self, password):
-        self.password = gerenate_password_hash(password)
+        self.password = generate_password_hash(password)
 
     def verify_passwrod(self, password):
         return check_password_hash(self.password, password)
@@ -63,11 +63,11 @@ class Consult(db.Model):
     consult_date = db.Column(db.DateTime, default=datetime.utcnow)
     secretaries = db.relationship('Secretary', backref='consult', lazy='dynamic')
     doctors = db.relationship('Doctor', backref='consult', lazy='dynamic')
-    id_patient = db.Column(db.Integer, db.ForeingKey('patients.id'))
-    id_status_consult = db.Column(db.Integer, db.ForeingKey('status_consults.id'))
+    id_patient = db.Column(db.Integer, db.ForeignKey('patients.id'))
+    id_status_consult = db.Column(db.Integer, db.ForeignKey('status_consults.id'))
 
     def __repr__(self):
-        return 'User ID: {}\nConsult date: {}'.format(self.id, self.consult_date)
+        return 'Consult ID: {}\nConsult date: {}'.format(self.id, self.consult_date)
 
 
 class StatusConsult(db.Model):
@@ -87,13 +87,13 @@ class Doctor(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     full_name = db.Column(db.String(50), index=True) 
-    id_consult = db.Column(db.Integer, db.ForeingKey('consults.id'))
-    id_specialty = db.Column(db.Integer, db.ForeingKey('specialties.id'))
+    id_consult = db.Column(db.Integer, db.ForeignKey('consults.id'))
+    id_specialty = db.Column(db.Integer, db.ForeignKey('specialties.id'))
 
 
     
     def __repr__(self):
-        return 'User ID: {}\Doctor Name: {}'.format(self.id, self.full_name)
+        return 'User ID: {}\nDoctor Name: {}'.format(self.id, self.full_name)
 
 
 class OccupationArea(db.Model):
@@ -102,11 +102,11 @@ class OccupationArea(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.Integer, index=True)
-    id_specialty = db.Column(db.Integer, db.ForeingKey('specialties.id'))
+    id_specialty = db.Column(db.Integer, db.ForeignKey('specialties.id'))
 
 
     def __repr__(self):
-        return 'OccupationArea ID: {}\Occupation Name: {}'.format(self.id, self.name)
+        return 'OccupationArea ID: {}\nOccupation Name: {}'.format(self.id, self.name)
 
 
 class Specialty(db.Model):
@@ -119,12 +119,12 @@ class Specialty(db.Model):
     occupation_areas = db.relationship('OccupatonArea', backref='occupation_areas_specialties', lazy="dynamic")
 
     def __repr__(self):
-        return 'Specialty ID: {}\Specialty Name: {}'.format(self.id, self.name)
+        return 'Specialty ID: {}\nSpecialty Name: {}'.format(self.id, self.name)
 
 
-class Patient(db.Modcel):
+class Patient(db.Model):
     
-     __tablename__ = "patients"
+    __tablename__ = "patients"
 
     id = db.Column(db.Integer, primary_key=True)
     full_name = db.Column(db.String(50), index=True)
@@ -132,4 +132,4 @@ class Patient(db.Modcel):
 
 
     def __repr__(self):
-        return 'User ID: {}\Patient Name: {}'.format(self.id, self.full_name)
+        return 'User ID: {}\nPatient Name: {}'.format(self.id, self.full_name)
