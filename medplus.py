@@ -20,7 +20,7 @@ def make_shell_context():
         'db': db,
         'Admin': Admin,
         'Secretary': Secretary,
-        'User': ,
+        'User': User,
         'Consult': Consult,
         'StatusConsult': StatusConsult,
         'Doctor': Doctor,
