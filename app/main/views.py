@@ -1,8 +1,8 @@
 from flask import render_template
-from . import home
+from . import main
 
 
-@home.route("/")
+@main.route("/")
 def homepage():
-    return render_tamplete("home/index.html", title="Bem vindo!")
+    return render_template("home/index.html", title="Bem vindo!")
     

@@ -24,7 +24,7 @@ def create_app(config_class=Config):
 
     from app.admin import admin as admin_blueprint
 
-    app.register_blueprint_(admin_blueprint, url_prefix="/admin")
+    app.register_blueprint(admin_blueprint, url_prefix="/admin")
 
     from app.auth import auth as auth_blueprint
 
