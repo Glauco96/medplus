@@ -22,5 +22,16 @@ def create_app(config_class=Config):
     login.init_app(app)
     bootstrap.init_app(app)
 
-    return app
+    from app.admin import admin as admin_blueprint
 
+    app.register_blueprint_(admin_blueprint, url_prefix="/admin")
+
+    from app.auth import auth as auth_blueprint
+
+    app.register_blueprint(auth_blueprint)
+
+    from app.main import main as main_blueprint
+
+    app.register_blueprint(main_blueprint)
+
+    return app
