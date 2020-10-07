@@ -1,0 +1,248 @@
+body, html {
+    width: 100%;
+    height: 100%;
+}
+
+body, h1, h2, h3 {
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+}
+
+a, .navbar-default .navbar-brand, .navbar-default .navbar-nav>li>a {
+  color: #aec251;
+}
+
+a:hover, .navbar-default .navbar-brand:hover, .navbar-default .navbar-nav>li>a:hover {
+  color: #687430;
+}
+
+footer {
+    padding: 50px 0;
+    background-color: #f8f8f8;
+}
+
+p.copyright {
+    margin: 15px 0 0;
+}
+
+.alert-info {
+    width: 50%;
+    margin: auto;
+    color: #687430;
+    background-color: #e6ecca;
+    border-color: #aec251;
+}
+
+.btn-default {
+    border-color: #aec251;
+    color: #aec251;
+}
+
+.btn-default:hover {
+    background-color: #aec251;
+}
+
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+
+.content-section {
+    padding: 50px 0;
+    border-top: 1px solid #e7e7e7;
+}
+
+.footer, .push {
+  clear: both;
+  height: 4em;
+}
+
+.intro-divider {
+    width: 400px;
+    border-top: 1px solid #f8f8f8;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+.intro-header {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+    color: #f8f8f8;
+    background-size: cover;
+    height: 100%;
+}
+
+.intro-message {
+    position: relative;
+    padding-top: 20%;
+    padding-bottom: 20%;
+}
+
+.intro-message > h1 {
+    margin: 0;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+    font-size: 5em;
+}
+
+.intro-message > h3 {
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+}
+
+.lead {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.topnav {
+    font-size: 14px;
+}
+
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -4em;
+}
+
+.outer {
+    display: table;
+    position: absolute;
+    height: 70%;
+    width: 100%;
+}
+
+.middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.inner {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card {
+    margin: 0 auto;
+    float: none; 
+    margin-bottom: 10px;
+    display:inline-block;
+}
+
+body{
+    overflow-x: hidden;
+  }
+  #slider-container{
+    max-height: 100vh;
+  }
+  
+  #main-slider {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 200vw;
+    margin-top: 6rem;
+  }
+  #main-slider .slide {
+    height: auto;
+    width: 18rem;
+    transition: all 0.5s;
+    background-color: #fff;
+  }
+  .slide.card {
+    border-radius: 10px;
+  }
+  .slide .card-title {
+    font-size: 0.9rem;
+  }
+  .slide .card-body {
+    padding: 0.8rem;
+  }
+  .slide img {
+    border-radius: 10px 10px 0 0;
+    filter: grayscale(100%);
+    transition: all 1s;
+  }
+  .slide .card-body p {
+    font-size: 0.7rem;
+    margin-bottom: 0.5rem;
+    transition: all 1s;
+    opacity: 0;
+  }
+  .slide.active img {
+    filter: none;
+  }
+  .slide.active .card-body p {
+    opacity: 1;
+  }
+  
+  #side-1 {
+    z-index: 99;
+    transform: translateX(100%) scale(1.5);
+  }
+  .slider-controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 auto 3rem auto;
+  }
+  .slider-btn {
+    border-radius: 50px;
+    height: 2rem;
+    width: 3rem;
+    border: 1px solid #6e6e6e;
+    font-size: 15px;
+    color: #6e6e6e;
+    text-align: center;
+    line-height: 30px;
+    padding-top: 0.1rem;
+    margin: 0.5rem;
+  }
+  .slider-btn:hover {
+    cursor: pointer;
+    color: #fff;
+    background-color: #00accd;
+    border: none;
+  }
+  .slide-indicator-container {
+    margin: 6rem auto 1rem auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .slide-indicator {
+    border-radius: 50%;
+    height: 0.5rem;
+    width: 0.5rem;
+    margin: 0.2rem;
+    border: 1px solid #6e6e6e;
+  }
+  .slide-indicator:hover {
+    cursor: pointer;
+  }
+  .slide-indicator.active {
+    background-color: #00accd;
+    border-color: #00accd;
+  }
+  .btn-contact {
+    background-color: #fff;
+    border: 1px solid #b3b3b3;
+    border-radius: 50px;
+    color: #a5a5a5;
+    padding: 0.3rem 0.5rem;
+    font-size: 0.6rem;
+    margin-bottom: 0.5rem;
+    transition: all 1s;
+  }
+  .slide.active .btn-contact {
+    background-color: #00accd;
+    color: #fff;
+    border: transparent;
+  }
+  .btn-contact:hover,
+  .slide.active .btn-contact:hover {
+    text-decoration: none;
+    color: #000;
+    background-color: #95d7e4;
+    border: transparent;
+  }

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+    <head>
+        <title>{{ title }} | Medplus</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+    </head>
+
+    <body>
+
+        <nav class="navbar navbar-inverse navbar-fixed-top topnav" role="navigation">
+
+            <div class="container topnav">
+
+                <div class="navbar-header">
+
+                    <button type="button" class="navbar-toggle" date-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    
+                        <span class="sr-only">Navegação</span>
+
+                        <span id="icon-bar"></span>
+
+                        <span id="icon-bar"></span>
+
+                        <span id="icon-bar"></span>
+
+                    </button>
+
+                    <a class="navbar-brand topnav" href="#"><i class="fa fa-plus"></i> Medplus</a>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+        <div class="wrapper">
+
+            {% block body %}{% endblock%}
+
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+        <script type="text/javascript" src=" {{ url_for('static', filename='css/bootstrap.min.css') }}"></script>
+
+    </body>
+
+</html>
