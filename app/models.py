@@ -36,7 +36,6 @@ class User(UserMixin, db.Model):
     login = db.Column(db.String(60), index=True, unique=True)
     full_name = db.Column(db.String(50), index=True)
     password = db.Column(db.String(128))
-    email_confirmed = db.Column(db.Boolean, default=False)
     admins = db.relationship('Admin', backref='user', lazy='dynamic')
     secretaries = db.relationship('Secretary', backref='user', lazy='dynamic')
 

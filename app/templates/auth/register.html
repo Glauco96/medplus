@@ -1,0 +1,16 @@
+{% import "bootstrap/utils.html" as utils %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% extends "base.html" %}
+{% block title %}Cadastre-se{% endblock %}
+{% block body %}
+<div class="content-section">
+    {{ utils.flashhed_message() }}
+    <div class="center">
+        <br/>
+        <h1>Cadastro</h1>
+        <br/>
+        {{ wtf.quick_form(form) }}
+        <br/>
+    </div>
+</div>
+{% endblock %}
