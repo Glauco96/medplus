@@ -28,7 +28,21 @@
 
                     </button>
 
-                    <a class="navbar-brand topnav" href="#"><i class="fa fa-plus"></i> Medplus</a>
+                    <a class="navbar-brand topnav" href="{{ url_for('main.homepage') }}"><i class="fa fa-plus"></i> Medplus</a>
+
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    
+                    <ul class="nav navbar-nav navbar-right">
+
+                        {% if current_user.is_anonymous %}
+
+                            <li><a href="{{ url_for('auth.login') }}"><i class="fa fa-sign-in"></i> Login</a></li>
+                        
+                            <li><a href="{{ url_for('auth.register') }}"><i class="fa fa-plus"></i> Cadastrar</a></li>
+                        {% endif %}
+                    </ul>
 
                 </div>
 

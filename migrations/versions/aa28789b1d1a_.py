@@ -1,8 +1,8 @@
-"""Adiciona v1.0
+"""empty message
 
-Revision ID: 30ef65baca6e
+Revision ID: aa28789b1d1a
 Revises: 
-Create Date: 2020-09-30 17:35:56.457959
+Create Date: 2020-10-16 16:48:21.451353
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '30ef65baca6e'
+revision = 'aa28789b1d1a'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -40,7 +40,6 @@ def upgrade():
     sa.Column('login', sa.String(length=60), nullable=True),
     sa.Column('full_name', sa.String(length=50), nullable=True),
     sa.Column('password', sa.String(length=128), nullable=True),
-    sa.Column('email_confirmed', sa.Boolean(), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_index(op.f('ix_users_email'), 'users', ['email'], unique=True)

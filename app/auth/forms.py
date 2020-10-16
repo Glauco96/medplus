@@ -12,7 +12,7 @@ from wtforms import(
 class RegistrationForm(FlaskForm):
     email = StringField("E-mail", validators=[DataRequired(), Email()])
     user = StringField("Usuário", validators=[DataRequired()])
-    full_name = StringField("Usuário", validators=[DataRequired()])
+    full_name = StringField("Nome Completo", validators=[DataRequired()])
     password =PasswordField("Senha", validators=[DataRequired(), EqualTo("password2")])
     password2 = PasswordField("Confirme a senha")
     submit = SubmitField("Cadastrar")
@@ -26,3 +26,9 @@ class RegistrationForm(FlaskForm):
         login = Login.query.filter_by(login=login.data).first()
         if user:
             raise ValidationError("Usuário já utilizado.Escolha outro ou faça login!")
+
+
+class LoginForm(FlaskForm):
+    login = StringField("E-mail ou usuário", validators=[DataRequired()])
+    password = PasswordField("Senha", validators=[DataRequired()])
+    submit = SubmitField("Login")
